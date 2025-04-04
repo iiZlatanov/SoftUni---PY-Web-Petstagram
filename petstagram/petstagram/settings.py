@@ -8,7 +8,7 @@ SECRET_KEY = "django-insecure-0alihx9&f276dz(dxtd3sob+bs+2b7(l_rz^kp0hurb6rmmhm0
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'localhost',
+    "localhost",
 ]
 
 INSTALLED_APPS = [
@@ -98,5 +98,7 @@ STATICFILES_DIRS = (
     BASE_DIR / "staticfiles",
 
 )
+
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

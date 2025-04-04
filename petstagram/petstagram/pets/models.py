@@ -1,7 +1,5 @@
 from django.db import models
-
-
-
+from django.utils.text import slugify
 
 
 
@@ -32,4 +30,11 @@ class Pet(models.Model):
         unique=True,
         null=False,
         blank=True,
+        editable=False, # Readonly, only in the Django App, not in the DB
     )
+
+    def save(self, *args, **kwargs):
+        if not self.slug: # slugify("My name") -> "My-name"
+            self.slug = slugify(f"{self.name}-{self.pk}")
+
+        super().save(*args, **kwargs)
